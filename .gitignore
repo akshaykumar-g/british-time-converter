@@ -10,8 +10,10 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-# Package Files #
+# Package Files - KEEP the junit JARs in lib/
 *.jar
+!lib/
+!lib/*.jar
 *.war
 *.nar
 *.ear
