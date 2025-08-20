@@ -10,8 +10,8 @@ public class BritishTimeSpokenForm {
         "twenty one", "twenty two", "twenty three", "twenty four", "twenty five",
         "twenty six", "twenty seven", "twenty eight", "twenty nine", "thirty", "thirty one", "thirty two", "thirty three", "thirty four", "thirty five", "thirty six", "thirty seven", "thirty eight", "thirty nine", "forty", "forty one", "forty two", "forty three", "forty four", "forty five", "forty six", "forty seven", "forty eight", "forty nine", "fifty", "fifty one", "fifty two", "fifty three", "fifty four", "fifty five", "fifty six", "fifty seven", "fifty eight", "fifty nine"
     };
-public static String toBritishTime(int h, int m) {
-        // Special cases
+
+    public static String toBritishTime(int h, int m) {
         if (h == 12 && m == 0) return "noon";
         if (h == 0 && m == 0) return "midnight";
 
@@ -26,9 +26,9 @@ public static String toBritishTime(int h, int m) {
         if (m >= 31 && m <= 34) {
             return numbers[hour] + " " + numbers[m]; // e.g., "six thirty-two"
         } else if (m < 30) {
-            return numbers[m] + " minutes past " + numbers[hour];
+            return numbers[m] + (m == 1 ? " minute past " : " minutes past ") + numbers[hour];
         } else {
-            return numbers[60 - m] + " minutes to " + numbers[nextHour];
+            return numbers[60 - m] + ((60 - m) == 1 ? " minute to " : " minutes to ") + numbers[nextHour];
         }
     }
 
